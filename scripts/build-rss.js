@@ -6,11 +6,11 @@ import { Feed } from 'feed'
 import { mdxComponents } from '../src/components/Post'
 import { getAllPosts } from '../src/getAllPostPreviews'
 
-const siteUrl = 'https://blog.tailwindcss.com'
+const siteUrl = 'https://blog.bee-interactive.ch'
 
 const feed = new Feed({
-  title: 'Tailwind CSS Blog',
-  description: 'All the latest Tailwind CSS news, straight from the team.',
+  title: 'Bee Interactive Blog',
+  description: 'All the latest Bee Interactive news, straight from the team.',
   id: siteUrl,
   link: siteUrl,
   language: 'en',
@@ -23,8 +23,8 @@ const feed = new Feed({
     atom: `${siteUrl}/atom.xml`,
   },
   author: {
-    name: 'Adam Wathan',
-    link: 'https://twitter.com/@adamwathan',
+    name: 'Yves Engetschwiler',
+    link: 'https://twitter.com/@yvesdesign',
   },
 })
 
@@ -37,7 +37,7 @@ getAllPosts().forEach(({ link, module: { meta, default: Content } }) => {
   const html = ReactDOMServer.renderToStaticMarkup(mdx)
   const postText = `<p><em>(The post <a href="${siteUrl + link}">${
     meta.title
-  }</a> appeared first on <a href="${siteUrl}">Tailwind CSS Blog</a>.)</em></p>`
+  }</a> appeared first on <a href="${siteUrl}">Bee Interactive Blog</a>.)</em></p>`
   feed.addItem({
     title: meta.title,
     id: meta.title,
