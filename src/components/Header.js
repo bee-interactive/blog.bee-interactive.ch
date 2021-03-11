@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 function TailwindMark({ className }) {
   return (
-    <img className={className} src="https://bee-interactive.ch/svg/logo.svg" width="200" />
+    <img className={className} src="https://bee-interactive.ch/svg/symbol.svg" width="200" />
   )
 }
 
