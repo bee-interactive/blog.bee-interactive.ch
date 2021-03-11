@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import PageTitle from '@/components/PageTitle'
 import tinytime from 'tinytime'
+import Moment from 'moment'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { MDXProvider } from '@mdx-js/react'
@@ -13,6 +14,8 @@ export const mdxComponents = {
     <code className={`${className} text-gray-200`} {...props} />
   ),
 }
+
+Moment.locale('fr')
 
 const postDateTemplate = tinytime('{dddd}, {DD} {MMMM}, {YYYY}')
 
@@ -45,7 +48,7 @@ export default function Post({ meta, children, posts }) {
             <div>
               <dt className="sr-only">Published on</dt>
               <dd className="text-base leading-6 font-medium text-gray-500">
-                <time dateTime={meta.date}>{postDateTemplate.render(new Date(meta.date))}</time>
+                <time dateTime={meta.date}>{Moment(meta.date).format('D MMMM, YYYY')}</time>
               </dd>
             </div>
           </dl>

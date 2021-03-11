@@ -1,8 +1,11 @@
 import tinytime from 'tinytime'
+import Moment from 'moment'
 import Link from 'next/link'
 import Head from 'next/head'
 import getAllPostPreviews from '@/getAllPostPreviews'
 import twitterCard from '@/img/twitter-card.jpg'
+
+Moment.locale('fr')
 
 const posts = getAllPostPreviews()
 
@@ -42,7 +45,7 @@ export default function Home() {
                 <dl>
                   <dt className="sr-only">Publié le</dt>
                   <dd className="text-base leading-6 font-medium text-gray-500">
-                    <time dateTime={meta.date}>{postDateTemplate.render(new Date(meta.date))}</time>
+                    <time dateTime={meta.date}>{Moment(meta.date).format('D MMMM, YYYY')}</time>
                   </dd>
                 </dl>
                 <div className="space-y-5 xl:col-span-3">

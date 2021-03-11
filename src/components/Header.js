@@ -18,7 +18,7 @@ export default function Header() {
       <div>
         <Link href="/">
           <a aria-label="Bee Interactive Blog">
-            <TailwindMark className="h-12 sm:hidden" />
+            <TailwindMark className="h-12 w-12 sm:hidden" />
             <TailwindLogo className="hidden sm:block h-24" />
           </a>
         </Link>
