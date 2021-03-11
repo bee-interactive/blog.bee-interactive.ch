@@ -1,12 +1,11 @@
 {
-  "name": "tailwind-blog",
+  "name": "bee-blog",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export && npm run build:rss",
-    "start": "next start",
-    "build:rss": "node ./.next/server/scripts/build-rss.js"
+    "build": "next build && next export",
+    "start": "next start"
   },
   "dependencies": {
     "@mapbox/rehype-prism": "^0.5.0",
