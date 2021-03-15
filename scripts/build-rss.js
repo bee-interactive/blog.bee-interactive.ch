@@ -10,13 +10,13 @@ const siteUrl = 'https://blog.bee-interactive.ch'
 
 const feed = new Feed({
   title: 'Bee Interactive Blog',
-  description: 'All the latest Bee Interactive news, straight from the team.',
+  description: 'Toutes les dernières actualités de Bee Interactive.',
   id: siteUrl,
   link: siteUrl,
-  language: 'en',
+  language: 'fr',
   image: `${siteUrl}/favicon-32x32.png`,
   favicon: `${siteUrl}/favicon.ico`,
-  copyright: `All rights reserved ${new Date().getFullYear()}, Bee Interactive`,
+  copyright: `Tous droits réservés ${new Date().getFullYear()}, Bee Interactive`,
   feedLinks: {
     rss: `${siteUrl}/feed.xml`,
     json: `${siteUrl}/feed.json`,
@@ -35,9 +35,9 @@ getAllPosts().forEach(({ link, module: { meta, default: Content } }) => {
     </MDXProvider>
   )
   const html = ReactDOMServer.renderToStaticMarkup(mdx)
-  const postText = `<p><em>(The post <a href="${siteUrl + link}">${
+  const postText = `<p><em>(le post <a href="${siteUrl + link}">${
     meta.title
-  }</a> appeared first on <a href="${siteUrl}">Bee Interactive Blog</a>.)</em></p>`
+  }</a> est apparu en premier sur <a href="${siteUrl}">Bee Interactive Blog</a>.)</em></p>`
   feed.addItem({
     title: meta.title,
     id: meta.title,
