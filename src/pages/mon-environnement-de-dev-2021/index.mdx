@@ -1,0 +1,46 @@
+import { yves } from '@/authors'
+import card from './card.jpg'
+import imgHtml from './cover.jpg'
+import imgHtml2x from './cover@2x.jpg'
+import imgDetails from './details.jpg'
+import imgDetails2x from './details@2x.jpg'
+
+export const meta = {
+  title: 'Mon environnement Home-office dev 2021',
+  description: `2021, tout comme une bonne partie de 2020, a été marqué par la pandémie de COVID19. Voici un peu mon environnement de travail qui résulte des différents confinements et mesures sanitaires.`,
+  date: '2021-01-10T21:35:00.0Z',
+  authors: [yves],
+  image: card,
+  footer: `
+    <p>
+    </p>
+  `,
+}
+
+2021, tout comme une bonne partie de 2020, a été marqué par la pandémie de COVID19. Voici un peu mon environnement de travail qui résulte des différents confinements et mesures sanitaires.
+
+<!--more-->
+
+Home office oblige, je me suis dis que ce serait la bonne occasion d'amménager un peu mieux mon espace de travail. Quoi de mieux que d'être dans un environnement dans lequel on se sent vraiment bien si l'on va y passer bien plus de temps qu'imaginé il y a quelques mois encore?
+
+Après de nombreuses recherches sur internet, de nombreuses vidéos Youtube, voici un peu le setup que je me suis fabriqué. C'est vraiment agréable de pouvoir bosser dans un espace que l'on a bâti et arrangé.
+
+<img
+  width="1200"
+  height="700"
+  alt="Mon nouvel espace de travail à la maison"
+  src={imgHtml}
+  srcSet={`${imgHtml} 762w, ${imgHtml2x} 1200w`}
+  sizes="(min-width: 1280px) 51rem, (min-width: 768px) 45rem, (min-width: 640px) calc(100vw - 3rem), calc(100vw - 2rem)"
+/>
+
+Les tableaux des Stormtroopers viennent du site Displate, la fusée Tintin est un cadeau de mes amis les plus chers, les figurines POP à l'effigie de mes films préférés. Les Legos, eux, ont berçés toute mon enfance!
+
+<img
+  width="1200"
+  height="700"
+  alt="Mon nouvel espace de travail à la maison"
+  src={imgDetails}
+  srcSet={`${imgDetails} 762w, ${imgDetails2x} 1200w`}
+  sizes="(min-width: 1280px) 51rem, (min-width: 768px) 45rem, (min-width: 640px) calc(100vw - 3rem), calc(100vw - 2rem)"
+/>
