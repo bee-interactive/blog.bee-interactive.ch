@@ -16,7 +16,7 @@ const feed = new Feed({
   language: 'en',
   image: `${siteUrl}/favicon-32x32.png`,
   favicon: `${siteUrl}/favicon.ico`,
-  copyright: `All rights reserved ${new Date().getFullYear()}, Tailwind Labs`,
+  copyright: `All rights reserved ${new Date().getFullYear()}, Bee Interactive`,
   feedLinks: {
     rss: `${siteUrl}/feed.xml`,
     json: `${siteUrl}/feed.json`,
@@ -24,7 +24,7 @@ const feed = new Feed({
   },
   author: {
     name: 'Yves Engetschwiler',
-    link: 'https://twitter.com/@yvesdesign',
+    link: 'https://twitter.com/@yvedesign',
   },
 })
 

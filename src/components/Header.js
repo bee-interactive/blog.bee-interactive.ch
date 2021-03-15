@@ -1,12 +1,12 @@
 import Link from 'next/link'
 
-function TailwindMark({ className }) {
+function BeeMark({ className }) {
   return (
     <img className={className} src="https://bee-interactive.ch/svg/symbol.svg" width="200" />
   )
 }
 
-function TailwindLogo({ className }) {
+function BeeLogo({ className }) {
   return (
     <img className={className} src="https://bee-interactive.ch/svg/logo.svg" width="200" />
   )
@@ -18,8 +18,8 @@ export default function Header() {
       <div>
         <Link href="/">
           <a aria-label="Bee Interactive Blog">
-            <TailwindMark className="h-12 w-12 sm:hidden" />
-            <TailwindLogo className="hidden sm:block h-24" />
+            <BeeMark className="h-12 w-12 sm:hidden" />
+            <BeeLogo className="hidden sm:block h-24" />
           </a>
         </Link>
       </div>

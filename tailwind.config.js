@@ -36,10 +36,11 @@ module.exports = {
         '13': '3.25rem',
         '14': '3.5rem',
       },
-      fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
-      },
       colors: {
+        beeinteractive: {
+          500: '#00c6da',
+          600: '#0698af',
+        },
         code: {
           green: '#b5f4a5',
           yellow: '#ffe484',
@@ -92,29 +93,5 @@ module.exports = {
   plugins: [
     require('@tailwindcss/ui'),
     require('@tailwindcss/typography'),
-    function ({ addBase, addComponents, theme }) {
-      addBase([
-        {
-          '@font-face': {
-            fontFamily: 'Inter var',
-            fontWeight: '100 900',
-            fontStyle: 'normal',
-            fontNamedInstance: 'Regular',
-            fontDisplay: 'swap',
-            src: 'url("/fonts/Inter-roman.var-latin.woff2?3.13") format("woff2")',
-          },
-        },
-        {
-          '@font-face': {
-            fontFamily: 'Inter var',
-            fontWeight: '100 900',
-            fontStyle: 'italic',
-            fontNamedInstance: 'Italic',
-            fontDisplay: 'swap',
-            src: 'url("/fonts/Inter-italic.var-latin.woff2?3.13") format("woff2")',
-          },
-        },
-      ])
-    },
   ],
 }

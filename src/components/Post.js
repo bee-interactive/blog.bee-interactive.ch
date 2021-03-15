@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import PageTitle from '@/components/PageTitle'
-import tinytime from 'tinytime'
 import Moment from 'moment'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -17,8 +16,6 @@ export const mdxComponents = {
 
 Moment.locale('fr')
 
-const postDateTemplate = tinytime('{dddd}, {DD} {MMMM}, {YYYY}')
-
 export default function Post({ meta, children, posts }) {
   const router = useRouter()
   const postIndex = posts.findIndex((post) => post.link === router.pathname)
@@ -28,25 +25,25 @@ export default function Post({ meta, children, posts }) {
   return (
     <article className="xl:divide-y xl:divide-gray-200">
       <Head>
-        <title>{meta.title} – Tailwind CSS</title>
+        <title>{meta.title} – Bee Interactive blog</title>
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@tailwindcss" />
-        <meta name="twitter:creator" content="@tailwindcss" />
-        <meta name="twitter:title" content={`${meta.title} – Tailwind CSS`} />
+        <meta name="twitter:site" content="@yvesdesign" />
+        <meta name="twitter:creator" content="@yvesdesign" />
+        <meta name="twitter:title" content={`${meta.title} – Bee Interactive blog`} />
         <meta name="twitter:description" content={meta.description} />
-        <meta name="twitter:image" content={`https://blog.tailwindcss.com${meta.image}`} />
-        <meta property="og:url" content={`https://blog.tailwindcss.com${router.pathname}`} />
+        <meta name="twitter:image" content={`https://blog.bee-interactive.ch${meta.image}`} />
+        <meta property="og:url" content={`https://blog.bee-interactive.ch${router.pathname}`} />
         <meta property="og:type" content="article" />
-        <meta property="og:title" content={`${meta.title} – Tailwind CSS`} />
+        <meta property="og:title" content={`${meta.title} – Bee Interactive blog`} />
         <meta property="og:description" content={meta.description} />
-        <meta property="og:image" content={`https://blog.tailwindcss.com${meta.image}`} />
+        <meta property="og:image" content={`https://blog.bee-interactive.ch${meta.image}`} />
         <meta name="description" content={meta.description}></meta>
       </Head>
       <header className="pt-6 xl:pb-10">
         <div className="space-y-1 text-center">
           <dl className="space-y-10">
             <div>
-              <dt className="sr-only">Published on</dt>
+              <dt className="sr-only">Publié le</dt>
               <dd className="text-base leading-6 font-medium text-gray-500">
                 <time dateTime={meta.date}>{Moment(meta.date).format('D MMMM, YYYY')}</time>
               </dd>
@@ -67,15 +64,15 @@ export default function Post({ meta, children, posts }) {
             <ul className="flex justify-center xl:block space-x-8 sm:space-x-12 xl:space-x-0 xl:space-y-8">
               {meta.authors.map((author) => (
                 <li key={author.twitter} className="flex items-center space-x-2">
-                  <img src={author.avatar} alt="{author.twitter}" className="w-10 h-10 rounded-full" />
+                  <img src={author.avatar} alt="Avatar de: {author.name}" className="w-10 h-10 rounded-full" />
                   <dl className="text-sm font-medium leading-5 whitespace-no-wrap">
-                    <dt className="sr-only">Nom</dt>
+                    <dt className="sr-only">Auteur de l'article</dt>
                     <dd className="text-gray-900">{author.name}</dd>
                     <dt className="sr-only">Twitter</dt>
                     <dd>
                       <a
                         href={`https://twitter.com/${author.twitter}`}
-                        className="text-teal-500 hover:text-teal-600"
+                        className="text-beeinteractive-600 hover:text-beeinteractive-500"
                       >
                         @{author.twitter}
                       </a>
@@ -97,8 +94,8 @@ export default function Post({ meta, children, posts }) {
             <div className="pt-6 pb-16">
               <p>
                 Want to talk about this post?{' '}
-                <a href={meta.discussion} className="font-medium text-teal-500 hover:text-teal-600">
-                  Discuss this on GitHub &rarr;
+                <a href={meta.discussion} className="font-medium text-beeinteractive-600 hover:text-beeinteractive-500">
+                  Discuter sur Github &rarr;
                 </a>
               </p>
             </div>
@@ -110,7 +107,7 @@ export default function Post({ meta, children, posts }) {
               {next && (
                 <div>
                   <h2 className="text-xs tracking-wide uppercase text-gray-500">Article suivant</h2>
-                  <div className="text-teal-500 hover:text-teal-600">
+                  <div className="text-beeinteractive-600 hover:text-beeinteractive-500">
                     <Link href={next.link}>
                       <a>{next.title}</a>
                     </Link>
@@ -122,7 +119,7 @@ export default function Post({ meta, children, posts }) {
                   <h2 className="text-xs tracking-wide uppercase text-gray-500">
                     Article précédent
                   </h2>
-                  <div className="text-teal-500 hover:text-teal-600">
+                  <div className="text-beeinteractive-600 hover:text-beeinteractive-500">
                     <Link href={previous.link}>
                       <a>{previous.title}</a>
                     </Link>
@@ -133,7 +130,7 @@ export default function Post({ meta, children, posts }) {
           )}
           <div className="pt-8">
             <Link href="/">
-              <a className="text-teal-500 hover:text-teal-600">&larr; Retour au blog</a>
+              <a className="text-beeinteractive-600 hover:text-beeinteractive-500">&larr; Retour au blog</a>
             </Link>
           </div>
         </footer>
