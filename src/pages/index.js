@@ -31,7 +31,7 @@ export default function Home() {
           Bienvenue sur le blog
         </h1>
         <p className="text-lg leading-7 text-gray-500">
-            Une collection de chouettes articles et de messages, ainsi que des discussions de geeks et des activités de l'entreprise.
+            Une collection de chouettes articles et messages, ainsi que des trucs un peu geek et des activités de l'entreprise.
         </p>
       </div>
       <div class="space-y-2 xl:grid xl:grid-cols-4 xl:space-y-0 xl:items-baseline">
