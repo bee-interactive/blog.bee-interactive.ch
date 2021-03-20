@@ -28,10 +28,10 @@ export default function Home() {
       </Head>
       <div className="pt-6 pb-8 space-y-2 md:space-y-5">
         <h1 className="text-3xl leading-9 font-extrabold text-gray-900 tracking-tight sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-          Bee Interactive
+          Bienvenue sur le blog
         </h1>
         <p className="text-lg leading-7 text-gray-500">
-          Toutes les dernières actualités de Bee Interactive.
+            Une collection de chouettes articles et de messages, ainsi que des discussions de geeks et des activités de l'entreprise.
         </p>
       </div>
       <div class="space-y-2 xl:grid xl:grid-cols-4 xl:space-y-0 xl:items-baseline">
@@ -40,7 +40,7 @@ export default function Home() {
             return (
               <li key={link} className="py-12">
                 <article className="">
-                    <dl>
+                    <dl class="mb-2">
                       <dt className="sr-only">Publié le</dt>
                       <dd className="text-base leading-6 font-medium text-gray-500">
                         <time dateTime={meta.date}>{Moment(meta.date).format('D MMMM, YYYY')}</time>
@@ -48,7 +48,7 @@ export default function Home() {
                     </dl>
                   <div className="space-y-5 xl:col-span-3">
                     <div className="space-y-6">
-                      <h2 className="text-3xl leading-10 font-bold tracking-tight">
+                      <h2 className="text-3xl leading-8 font-bold tracking-tight md:text-5xl md:leading-10">
                         <Link href={link}>
                           <a className="text-gray-900">{meta.title}</a>
                         </Link>

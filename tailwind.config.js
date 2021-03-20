@@ -93,5 +93,18 @@ module.exports = {
   plugins: [
     require('@tailwindcss/ui'),
     require('@tailwindcss/typography'),
+    function ({ addBase, addComponents, theme }) {
+        addBase([
+          {
+            '@font-face': {
+              fontFamily: 'DIN Pro Cond',
+              fontWeight: 'bold',
+              fontStyle: 'normal',
+              fontDisplay: 'swap',
+              src: 'url("/fonts/dinpro/DINPro-CondensedBold.woff2") format("woff2")',
+            },
+          },
+        ])
+      },
   ],
 }
