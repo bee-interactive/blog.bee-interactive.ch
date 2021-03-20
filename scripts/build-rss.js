@@ -6,7 +6,7 @@ import { Feed } from 'feed'
 import { mdxComponents } from '../src/components/Post'
 import { getAllPosts } from '../src/getAllPostPreviews'
 
-const siteUrl = 'https://blog.bee-interactive.ch/'
+const siteUrl = 'https://blog.bee-interactive.ch'
 
 const feed = new Feed({
   title: 'Bee Interactive Blog',
