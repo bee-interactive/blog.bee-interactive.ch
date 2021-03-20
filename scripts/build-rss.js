@@ -6,7 +6,7 @@ import { Feed } from 'feed'
 import { mdxComponents } from '../src/components/Post'
 import { getAllPosts } from '../src/getAllPostPreviews'
 
-const siteUrl = 'https://blog.bee-interactive.ch'
+const siteUrl = 'https://blog.bee-interactive.ch/'
 
 const feed = new Feed({
   title: 'Bee Interactive Blog',
@@ -41,7 +41,7 @@ getAllPosts().forEach(({ link, module: { meta, default: Content } }) => {
   feed.addItem({
     title: meta.title,
     id: meta.title,
-    link,
+    link: siteUrl + link,
     description: meta.description,
     content: html + postText,
     author: meta.authors.map(({ name, twitter }) => ({
