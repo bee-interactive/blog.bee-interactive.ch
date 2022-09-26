@@ -40,6 +40,7 @@ module.exports = {
         beeinteractive: {
           500: '#00c6da',
           600: '#0698af',
+          700: '#284b63',
         },
         code: {
           green: '#b5f4a5',

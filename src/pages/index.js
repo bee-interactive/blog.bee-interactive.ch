@@ -34,13 +34,13 @@ export default function Home() {
             Une collection de chouettes articles et messages, ainsi que des trucs un peu geek et des activités de l'entreprise.
         </p>
       </div>
-      <div class="space-y-2 xl:grid xl:grid-cols-4 xl:space-y-0 xl:items-baseline">
+      <div className="space-y-2 xl:grid xl:grid-cols-4 xl:space-y-0 xl:items-baseline">
         <ul className="space-y-2 col-span-4 xl:items-baseline divide-y divide-gray-200">
           {posts.map(({ link, module: { default: Component, meta } }) => {
             return (
               <li key={link} className="py-12">
                 <article className="">
-                    <dl class="mb-2">
+                    <dl className="mb-2">
                       <dt className="sr-only">Publié le</dt>
                       <dd className="text-base leading-6 font-medium text-gray-500">
                         <time dateTime={meta.date}>{Moment(meta.date).format('D MMMM, YYYY')}</time>

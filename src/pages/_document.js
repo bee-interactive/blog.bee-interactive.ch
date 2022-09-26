@@ -47,7 +47,6 @@ export default class Document extends NextDocument {
         <body>
           <Main />
           <NextScript />
-          <script src="https://cdn.usefathom.com/script.js" data-site="EHBYANXH" defer></script>
         </body>
       </Html>
     )

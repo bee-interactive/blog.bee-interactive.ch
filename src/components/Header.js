@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 function BeeMark({ className }) {
   return (
-    <img className={className} src="https://bee-interactive.ch/svg/symbol.svg" width="200" />
+    <img className={className} src="https://bee-interactive.ch/svg/symbol.svg" alt="Bee Interactive Symbol" width="200" />
   )
 }
 
