@@ -8,7 +8,7 @@ function BeeMark({ className }) {
 
 function BeeLogo({ className }) {
   return (
-    <img className={className} src="https://bee-interactive.ch/svg/logo.svg" width="200" />
+    <img className={className} src="https://bee-interactive.ch/svg/logo.svg" alt="Bee Interactive Logo" width="200" />
   )
 }
 

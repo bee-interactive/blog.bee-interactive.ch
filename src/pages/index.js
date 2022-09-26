@@ -60,7 +60,7 @@ export default function Home() {
                     <div className="text-base leading-6 font-medium">
                       <Link href={link}>
                         <a
-                          className="text-beeinteractive-600 hover:text-beeinteractive-500"
+                          className="text-beeinteractive-700 hover:text-beeinteractive-600"
                           aria-label={`Read "${meta.title}"`}
                         >
                           Lire la suite &rarr;
