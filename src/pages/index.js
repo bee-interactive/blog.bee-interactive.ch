@@ -23,6 +23,7 @@ export default function Home() {
         <meta property="og:title" content="Blog – Bee Interactive" />
         <meta property="og:description" content="Toutes les dernières actualités de Bee Interactive." />
         <meta property="og:image" content={`https://blog.bee-interactive.ch${twitterCard}`} />
+        <meta name="google-site-verification" content="_x2KfzYuvhuGyhaW-M-11Vb8wzdPkDMfP4m" />
         <title>Blog – Bee Interactive</title>
         <meta name="description" content="Toutes les dernières actualités de Bee Interactive." />
       </Head>
