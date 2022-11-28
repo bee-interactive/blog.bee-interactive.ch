@@ -1,0 +1,38 @@
+import { yves } from '@/authors'
+import card from './card.jpg'
+import imgHtml from './cover.jpg'
+import imgHtml2x from './cover@2x.jpg'
+
+export const meta = {
+  title: 'Now.',
+  description: `Ceci est ma page now et montre ce sur quoi je me concentre en ce moment.`,
+  date: '2022-11-28T10:00:00.0Z',
+  authors: [yves],
+  image: card,
+  footer: `
+    <p>
+    </p>
+  `,
+}
+
+Ceci est ma page now et montre ce sur quoi je me concentre en ce moment.
+
+<!--more-->
+
+<img
+  width="1200"
+  height="700"
+  alt="Ceci est ma page now et montre ce sur quoi je me concentre en ce moment."
+  src={imgHtml}
+  srcSet={`${imgHtml} 762w, ${imgHtml2x} 1200w`}
+  sizes="(min-width: 1280px) 51rem, (min-width: 768px) 45rem, (min-width: 640px) calc(100vw - 3rem), calc(100vw - 2rem)"
+/>
+
+Hey 👋 C'est une page que je mets à jour environ tous les mois avec ce que je fais en ce moment. J'inclurai souvent des liens vers des choses que j'ai publiées ou sur lesquelles j'ai travaillé. Merci d'être passé!
+
+En ce moment, je travaille sur plusieurs refontes de sites ainsi que le développement d'une structure un peu plus grande et avec davantage de personnes au bureau.
+
+J'ai également décidé de me remettre un peu au sport de manière plus intensive 😬
+
+## Conclusion
+Mis à jour : Novembre 2022. Inspiré par Derek Sivers.
