@@ -2,10 +2,6 @@ import { yves } from '@/authors'
 import card from './card.jpg'
 import imgHtml from './cover.jpg'
 import imgHtml2x from './cover@2x.jpg'
-import dashboardImg from './dashboard.png'
-import addTransactionsImg from './add-transactions.png'
-import vatStatsImg from './vat-stats.png'
-import categoryStatsImg from './category-stats.png'
 
 export const meta = {
   title: 'Comment je gère (une partie) de ma vie : Mon passage de l’enfer d’Excel au paradis de Laravel avec Taab',
@@ -42,7 +38,7 @@ Comme beaucoup, j’ai commencé avec un tableau Excel. Mais après avoir passé
 ## Construire Taab : ce qu’il y a sous le capot
 Taab tourne avec Laravel, utilise l’event sourcing (merci Spatie !), Alpine.js et Livewire. J’ai branché des services comme Mindee pour scanner les tickets, OpenRoute pour calculer les trajets pros, et Algolia pour la recherche rapide. Ce projet est devenu mon bac à sable tech, où je teste toutes les nouveautés Laravel dès qu’elles sortent.
 
-![Dashboard de l’application Taab](${dashboardImg} "Dashboard de l’application Taab")
+![Dashboard de l’application Taab](/img/taab/dashboard.png "Dashboard de l’application Taab")
 
 ## Ce que Taab fait pour moi
  - Dashboard : Je peux flouter ou non mon résumé financier, selon que j’ai envie de frimer ou de cacher mes chiffres aux curieux.
@@ -51,12 +47,12 @@ Taab tourne avec Laravel, utilise l’event sourcing (merci Spatie !), Alpine.js
  - Ajouts faciles : Scanner un ticket, c’est un jeu d’enfant avec Mindee ; je peux aussi ajouter des dépenses récurrentes ou des templates pour les paiements réguliers.
  - Import en masse : Je balance une pile de tickets, et Taab me prévient si je suis sur le point de compter deux fois la même chose.
 
-![Menu de l’ajout des transactions](${addTransactionsImg} "Menu de l’ajout des transactions")
+![Menu de l’ajout des transactions](/img/taab/add-transactions.png "Menu de l’ajout des transactions")
 
 ## Rendre la saison des impôts (presque) agréable
 Quand vient le temps des impôts, les rapports de Taab me donnent un aperçu instantané des entrées et sorties de l’année. Remplir les formulaires devient un simple copier-coller, et je peux même comparer avec les années précédentes.
 
-![Vue du résumé de la TVA de l’application Taab](${vatStatsImg} "Vue du résumé de la TVA de l’application Taab")
+![Vue du résumé de la TVA de l’application Taab](/img/taab/vat-stats.png "Vue du résumé de la TVA de l’application Taab")
 
 ## Intégrer mon workflow
 Je ne me suis pas arrêté à la finance perso. J’ai aussi développé une appli de gestion de projet (avec Flux) qui synchronise les factures et paiements directement dans Taab. Grâce à Laravel Sanctum, marquer une facture comme payée met à jour mes comptes automatiquement.
@@ -64,7 +60,7 @@ Je ne me suis pas arrêté à la finance perso. J’ai aussi développé une app
 ## Les détails techniques
 J’utilise l’event sourcing pour toute l'application. Livewire gère le scan des tickets, les appels API ramènent les données, et chaque action est enregistrée comme un événement. Du coup, je peux rejouer mon historique financier, débuguer facilement, et toujours savoir d’où vient un bug (ou un succès).
 
-![Statistiques des catégories ajoutées dans Taab pour une vue d’ensemble sur 4 ans](${categoryStatsImg} "Statistiques des catégories ajoutées dans Taab pour une vue d’ensemble sur 4 ans")
+![Statistiques des catégories ajoutées dans Taab pour une vue d’ensemble sur 4 ans](/img/taab/category-stats.png "Statistiques des catégories ajoutées dans Taab pour une vue d’ensemble sur 4 ans")
 
 ## Hacks et leçons de la vraie vie
 En Q&R, j’ai partagé les galères techniques (pourquoi je ne peux pas traiter les tickets en arrière-plan à cause de mon hébergement mutualisé), et comment je garde Livewire à jour. J’ai aussi tenté des intégrations fun, comme calculer les kilomètres pour les impôts ou "hacker" l’import des billets de train SBB en parsant les e-mail automatiques envoyés lors d'un achat de billet de train (faute d’API publique).
