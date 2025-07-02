@@ -76,7 +76,7 @@ export default function Home() {
         </ul>
       </div>
 
-      <small>Le code de ce blog a été développé par tailwincss labs et est <a href="https://github.com/tailwindlabs/blog.tailwindcss.com" target="_blank">disponible sur github</a></small>
+      <small><br />Le code de ce blog a été développé par tailwincss labs et est <a href="https://github.com/tailwindlabs/blog.tailwindcss.com" target="_blank">disponible sur github</a><br /><br /></small>
     </div>
   )
 }
