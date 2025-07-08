@@ -34,18 +34,14 @@ Pour construire notre MVP d'application de gestion de projet local-first, nous u
 
 <TechStack>
   <TechItem icon="laravel" version="12">
-    **Laravel 12:** Backend API pour la synchronisation et l'authentification
+    Laravel 12: Backend API pour la synchronisation et l'authentification
   </TechItem>
   <TechItem icon="react" version="19">
-    **React + TypeScript:** Interface utilisateur réactive avec gestion d'état offline
+    React + TypeScript: Interface utilisateur réactive avec gestion d'état offline
   </TechItem>
-  <TechItem icon="electron">
-    **NativePHP:** Création d'une application desktop avec Electron
-  </TechItem>
-  <TechItem icon="database">**SQLite:** Base de données locale et serveur</TechItem>
-  <TechItem icon="sync">
-    **Yjs:** Implémentation des CRDTs pour la collaboration temps réel
-  </TechItem>
+  <TechItem icon="electron">NativePHP: Création d'une application desktop avec Electron</TechItem>
+  <TechItem icon="database">SQLite: Base de données locale et serveur</TechItem>
+  <TechItem icon="sync">Yjs: Implémentation des CRDTs pour la collaboration temps réel</TechItem>
 </TechStack>
 
 ## Architecture du Système
@@ -121,29 +117,14 @@ Les fonctionnalités essentielles du MVP incluront :
 
 ## Défis et Solutions
 
-<Challenge type="warning">
-  ### Défi: Logique de synchronisation complexe
+Défi: Logique de synchronisation complexe
+Solution: Commencer avec une stratégie simple "dernière écriture gagne", puis ajouter progressivement la complexité des CRDTs.
 
-**Solution:** Commencer avec une stratégie simple "dernière écriture gagne",
-puis ajouter progressivement la complexité des CRDTs.
+Défi: Nature sans état de Laravel vs connexions persistantes
+Solution: Utiliser Laravel pour la synchronisation REST, serveur WebSocket séparé pour le temps réel.
 
-</Challenge>
-
-<Challenge type="warning">
-  ### Défi: Nature sans état de Laravel vs connexions persistantes
-
-**Solution:** Utiliser Laravel pour la synchronisation REST,
-serveur WebSocket séparé pour le temps réel.
-
-</Challenge>
-
-<Challenge type="warning">
-  ### Défi: Taille de l'application Electron
-
-**Solution:** Utiliser le code splitting de Vite,
-charger les fonctionnalités à la demande.
-
-</Challenge>
+Défi: Taille de l'application Electron
+Solution: Utiliser le code splitting de Vite, charger les fonctionnalités à la demande.
 
 ## Hook de Synchronisation React
 
@@ -180,8 +161,6 @@ Après 8 semaines de développement, le MVP offrira :
 5. Visibilité du statut de synchronisation
 
 ## Conclusion
-
-Cette architecture local-first représente l'avenir des applications professionnelles. Elle offre une expérience utilisateur supérieure en éliminant la dépendance au réseau tout en permettant la collaboration moderne.
 
 Avec Laravel comme backend robuste, React pour une UI réactive, et les CRDTs pour la synchronisation intelligente, nous créons une application qui fonctionne vraiment partout, tout le temps.
 
