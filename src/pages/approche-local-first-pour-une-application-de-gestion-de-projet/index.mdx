@@ -1,0 +1,190 @@
+import { yves } from '@/authors'
+import card from './card.jpg'
+import imgHtml from './cover.jpg'
+import imgHtml2x from './cover@2x.jpg'
+
+export const meta = {
+  title: 'Construire une application de gestion de projet local-first avec Laravel et React',
+  description: `Découvrez comment créer une application qui fonctionne sans connexion internet ou connexion au serveur distant, synchronise automatiquement vos données et permet la collaboration en temps réel.`,
+  date: '2025-07-08T16:30:00.0Z',
+  authors: [yves],
+  image: card,
+  footer: `
+    <p>
+    </p>
+  `,
+}
+
+Imaginez une application qui fonctionne parfaitement sans connexion internet ou connexion au serveur distant, synchronise automatiquement vos données quand le réseau revient, et permet la collaboration en temps réel. C'est exactement ce que nous allons construire avec une architecture "local-first".
+
+<!--more-->
+
+## Qu'est-ce qu'une application local-first?
+
+Une application local-first inverse le paradigme traditionnel des applications web. Au lieu de dépendre d'une connexion permanente au serveur, elle :
+
+- Sauvegarde toutes les modifications dans une base de données locale (sur son ordinateur) SQLite
+- Synchronise en arrière-plan avec le serveur quand la connexion est disponible
+- Lit les données localement pour un accès instantané
+- Permet la collaboration en temps réel grâce aux CRDTs (Conflict-free Replicated Data Types)
+
+## La Stack Technologique
+
+Pour construire notre MVP d'application de gestion de projet local-first, nous utiliserons :
+
+<TechStack>
+  <TechItem icon="laravel" version="12">
+    **Laravel 12:** Backend API pour la synchronisation et l'authentification
+  </TechItem>
+  <TechItem icon="react" version="19">
+    **React + TypeScript:** Interface utilisateur réactive avec gestion d'état offline
+  </TechItem>
+  <TechItem icon="electron">
+    **NativePHP:** Création d'une application desktop avec Electron
+  </TechItem>
+  <TechItem icon="database">**SQLite:** Base de données locale et serveur</TechItem>
+  <TechItem icon="sync">
+    **Yjs:** Implémentation des CRDTs pour la collaboration temps réel
+  </TechItem>
+</TechStack>
+
+## Architecture du Système
+
+```ascii
+┌─────────────────┐     ┌──────────────────┐     ┌─────────────────┐
+│   NativePHP     │     │   React + Yjs    │     │  Laravel API    │
+│   Desktop App   ├─────┤  Local SQLite    ├─────┤  Server SQLite  │
+│   (Electron)    │     │  CRDT Store      │     │  Sync Endpoint  │
+└─────────────────┘     └──────────────────┘     └─────────────────┘
+```
+
+## Plan de Développement du MVP
+
+### Phase 1: Fondations (Semaines 1-2)
+
+La première étape consiste à mettre en place l'infrastructure de base :
+
+1. Installation et configuration de NativePHP avec Laravel
+2. Configuration du processus de build Electron
+3. Mise en place des bases de données SQLite (locale et serveur)
+
+Voici le schéma de base de données nécessaire :
+
+```sql
+-- Tables essentielles pour local et serveur
+projects (id, name, yjs_doc_id, created_at, updated_at)
+tasks (id, project_id, title, yjs_doc_id, created_at, updated_at)
+sync_queue (id, entity_type, entity_id, action, data, synced_at)
+yjs_updates (doc_id, update_data, client_id, timestamp)
+```
+
+### Phase 2: Couche de Données Locale (Semaines 3-4)
+
+Implémentation du service de base de données locale et du moteur de synchronisation :
+
+```typescript
+// Service de base de données locale
+class LocalDatabase {
+  async saveProject(project: Project)
+  async getProjects(): Project[]
+  async queueForSync(entity: SyncEntity)
+}
+```
+
+Le moteur de synchronisation Laravel gérera la résolution des conflits et la fusion des mises à jour :
+
+```php
+// Endpoint de synchronisation Laravel
+Route::post('/api/sync', [SyncController::class, 'sync']);
+```
+
+### Phase 3: Implémentation des CRDTs (Semaines 5-6)
+
+L'intégration de Yjs permettra la collaboration en temps réel :
+
+```typescript
+// Structure du document partagé
+const projectDoc = new Y.Doc()
+const projectData = projectDoc.getMap('data')
+const tasks = projectDoc.getArray('tasks')
+```
+
+### Phase 4: Fonctionnalités MVP (Semaines 7-8)
+
+Les fonctionnalités essentielles du MVP incluront :
+
+- Création et édition de projets (avec CRDT)
+- Création et édition de tâches (avec CRDT)
+- Indicateur de statut hors ligne
+- Tableau de bord de synchronisation
+- Interface basique de résolution des conflits
+
+## Défis et Solutions
+
+<Challenge type="warning">
+  ### Défi: Logique de synchronisation complexe
+
+**Solution:** Commencer avec une stratégie simple "dernière écriture gagne",
+puis ajouter progressivement la complexité des CRDTs.
+
+</Challenge>
+
+<Challenge type="warning">
+  ### Défi: Nature sans état de Laravel vs connexions persistantes
+
+**Solution:** Utiliser Laravel pour la synchronisation REST,
+serveur WebSocket séparé pour le temps réel.
+
+</Challenge>
+
+<Challenge type="warning">
+  ### Défi: Taille de l'application Electron
+
+**Solution:** Utiliser le code splitting de Vite,
+charger les fonctionnalités à la demande.
+
+</Challenge>
+
+## Hook de Synchronisation React
+
+Voici un exemple de hook React pour gérer la synchronisation :
+
+```typescript
+// resources/js/hooks/useSync.ts
+export function useSync() {
+  const [syncStatus, setSyncStatus] = useState('idle')
+  const syncQueue = useSyncQueue()
+
+  useEffect(() => {
+    const interval = setInterval(async () => {
+      if (navigator.onLine) {
+        await processSyncQueue()
+      }
+    }, 5000)
+
+    return () => clearInterval(interval)
+  }, [])
+
+  return { syncStatus, syncQueue }
+}
+```
+
+## Livrables du MVP
+
+Après 8 semaines de développement, le MVP offrira :
+
+1. Une application desktop avec gestion de projet offline-first
+2. Collaboration en temps réel sur les projets et tâches
+3. Synchronisation automatique en arrière-plan
+4. Résolution basique des conflits
+5. Visibilité du statut de synchronisation
+
+## Conclusion
+
+Cette architecture local-first représente l'avenir des applications professionnelles. Elle offre une expérience utilisateur supérieure en éliminant la dépendance au réseau tout en permettant la collaboration moderne.
+
+Avec Laravel comme backend robuste, React pour une UI réactive, et les CRDTs pour la synchronisation intelligente, nous créons une application qui fonctionne vraiment partout, tout le temps.
+
+Ce MVP prouvera la faisabilité du concept et ouvrira la voie à des fonctionnalités plus avancées comme le chiffrement de bout en bout, les permissions granulaires, et l'intégration avec d'autres outils.
+
+Rendez-vous dans quelques semaines pour le projet final, et un peu avant pour des points réguliers du développement !
